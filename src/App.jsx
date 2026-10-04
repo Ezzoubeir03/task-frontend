@@ -1,5 +1,6 @@
 import TaskForm from "./components/TaskForm";
 import { useState } from "react";
+import TaskItem from "./components/TaskItem";
 
 function App() {
   const [task, setTask] = useState("");
@@ -47,7 +48,7 @@ function App() {
       <h2>My Tasks</h2>
       <ul>
         {tasks.map((task, index) => (
-          <li key ={index} > {task.title} </li>
+          <TaskItem key={index} task={task} />
         ))}
       </ul>
     </div>
