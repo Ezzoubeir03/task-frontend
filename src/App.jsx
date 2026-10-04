@@ -1,3 +1,4 @@
+import TaskForm from "./components/TaskForm";
 import { useState } from "react";
 
 function App() {
@@ -39,9 +40,9 @@ function App() {
   return (
     <div>
       <h1> Task Manager</h1>
-      <input type ="text" placeholder="Enter a new task" value={task} onChange={(e) =>  setTask(e.target.value)} />
+      <TaskForm task={task} setTask={setTask} addTask={addTask} />
 
-      <button onClick={addTask}>Add Task </button>
+      {/* <button onClick={addTask}>Add Task </button> */}
 
       <h2>My Tasks</h2>
       <ul>
