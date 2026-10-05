@@ -1,6 +1,8 @@
 import TaskForm from "./components/TaskForm";
 import { useState } from "react";
 import TaskItem from "./components/TaskItem";
+import Sidebar from "./components/Sidebar";
+import "./App.css";
 
 function App() {
   const [task, setTask] = useState("");
@@ -39,18 +41,20 @@ function App() {
      }
   }
   return (
-    <div>
-      <h1> Task Manager</h1>
-      <TaskForm task={task} setTask={setTask} addTask={addTask} />
+    <div className ="app">
+      <Sidebar />
+      <main className="main">
+        <h1> Task Manager</h1>
+        <TaskForm task={task} setTask={setTask} addTask={addTask} />
 
       {/* <button onClick={addTask}>Add Task </button> */}
-
       <h2>My Tasks</h2>
       <ul>
-        {tasks.map((task, index) => (
-          <TaskItem key={index} task={task} />
+        {tasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
         ))}
-      </ul>
+         </ul>
+      </main>
     </div>
     );
 }  
