@@ -3,6 +3,7 @@ import { useState } from "react";
 import TaskItem from "./components/TaskItem";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
+import  DashboardHeader from "./components/DashboardHeader";
 
 function App() {
   const [task, setTask] = useState("");
@@ -44,7 +45,7 @@ function App() {
     <div className ="app">
       <Sidebar />
       <main className="main">
-        <h1> Task Manager</h1>
+       <DashboardHeader />
         <TaskForm task={task} setTask={setTask} addTask={addTask} />
 
       {/* <button onClick={addTask}>Add Task </button> */}

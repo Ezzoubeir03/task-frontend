@@ -83,3 +83,35 @@ body {
   padding: 30px;
   max-width: 1400px;
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+}
+.welcome-text {
+  color:#858ba8;
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+.subtitle {
+  color: #858ba8;
+  margin-top: 8px;
+}
+.add-task-button {
+background: #6d3df5;
+color: white;
+border:none;
+padding:12px 20px;
+border-radius: 10px;
+font-size: 14px;
+cursor:pointer;
+}
+.add-task-button:hover {
+  background: #7d50ff;
+}
