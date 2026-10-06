@@ -1,9 +1,11 @@
-function TaskItem({task, updateTask}){
+function TaskItem({task, updateTask, deleteTask}){
     async function handleToggle(){
 
         const updatedTask = {...task, completed: !task.completed,}; 
         await updateTask(updatedTask);
     }
+     
+    
     return(
         <li className="task-item">
             <input type="checkbox" checked={task.completed} onChange={handleToggle} />
@@ -11,6 +13,9 @@ function TaskItem({task, updateTask}){
             <span className={task.completed ? 'completed': ""}>
                 {task.title}
             </span>
+            <button className="delete-button" onClick={() => deleteTask(task.id)}>
+                Delete
+            </button>
         </li>
     );
 

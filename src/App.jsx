@@ -57,7 +57,7 @@ useEffect(() => {
 
     console.log("New task added:", newTask);
 
-    setTasks([...tasks, newTask]);
+    setTasks((previousTasks)=>[...previousTasks, newTask]);
     setTask("");
   } catch (error) {
     console.error("Failed to add task:", error);
@@ -79,10 +79,27 @@ useEffect(() => {
       const savedTask = await response.json();
 
       setTasks(
-        tasks.map((task) => task.id ===savedTask.id ? savedTask : task)
+        (previousTasks) => previousTasks.map((previousTask) => previousTask.id ===savedTask.id ? savedTask : previousTask)
       );
     } catch (error){
       console.error("Failed to update task:", error);
+    }
+  }
+
+  async function deleteTask(taskId){
+    try {
+      const response = await fetch(`http://localhost:8080/api/tasks/${taskId}`, {
+        method: "DELETE",
+      }
+    );
+
+    if(!response.ok){
+      console.error("Failed to delete the task");
+      return;
+    }
+    setTasks((previousTasks) => previousTasks.filter((task) => task.id !== taskId));
+  } catch(error){
+    console.error("Failed to delete task:", error);
     }
   }
   return (
@@ -97,7 +114,7 @@ useEffect(() => {
       <h2>My Tasks</h2>
       <ul>
         {currentTasks.map((task) => (
-          <TaskItem key={task.id} task={task} updateTask={updateTask} />
+          <TaskItem key={task.id} task={task} updateTask={updateTask} deleteTask={deleteTask} />
         ))}
          </ul>
       </main>
