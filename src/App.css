@@ -115,3 +115,28 @@ cursor:pointer;
 .add-task-button:hover {
   background: #7d50ff;
 }
+
+.task-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.overview-card {
+  background: #11172d;
+  border: 1px solid #202642;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.overview-card p {
+  margin: 0;
+  color: #858ba8;
+  font-size: 14px;
+}
+
+.overview-card h2 {
+  margin: 10px 0 0;
+  font-size: 28px;
+}

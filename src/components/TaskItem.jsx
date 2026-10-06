@@ -1,9 +1,18 @@
-function TaskItem({task}){
+function TaskItem({task, updateTask}){
+    async function handleToggle(){
+
+        const updatedTask = {...task, completed: !task.completed,}; 
+        await updateTask(updatedTask);
+    }
     return(
-        <div>
-            <h3>{task.title}</h3>
-            <p>{task.completed ? 'Completed': 'Not completed'}</p>
-        </div>
+        <li className="task-item">
+            <input type="checkbox" checked={task.completed} onChange={handleToggle} />
+
+            <span className={task.completed ? 'completed': ""}>
+                {task.title}
+            </span>
+        </li>
     );
+
 }
 export default TaskItem;

@@ -14,7 +14,9 @@ function DashboardHeader(){
             <button className="add-task-button">
                 + Add Task
             </button>
+            
         </header>
+        
     );
 
 }
