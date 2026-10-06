@@ -1,5 +1,5 @@
 import TaskForm from "./components/TaskForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskItem from "./components/TaskItem";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
@@ -10,7 +10,25 @@ function App() {
 
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const currentTasks = tasks.filter(task => !task.completed);
 
+  async function getTasks(){
+    try {
+      const response = await fetch("http://localhost:8080/api/tasks");
+      if(!response.ok){
+        console.error("Failed to fetch tasks");
+        return;
+      }
+      const data = await response.json();
+
+  setTasks(data);
+  } catch(error){
+  console.error("Failed to get tasks", error);
+  }
+}
+useEffect(() => {
+  getTasks();
+}, []);
   async function addTask() {
   if (task.trim() === "") return;
 
@@ -78,7 +96,7 @@ function App() {
       {/* <button onClick={addTask}>Add Task </button> */}
       <h2>My Tasks</h2>
       <ul>
-        {tasks.map((task) => (
+        {currentTasks.map((task) => (
           <TaskItem key={task.id} task={task} updateTask={updateTask} />
         ))}
          </ul>
