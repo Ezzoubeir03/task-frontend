@@ -10,7 +10,10 @@ function App() {
 
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [activePage, setActivePage] = useState("home");
+
   const currentTasks = tasks.filter(task => !task.completed);
+  const completedTasks = tasks.filter(task => task.completed);
 
   async function getTasks(){
     try {
@@ -104,7 +107,7 @@ useEffect(() => {
   }
   return (
     <div className ="app">
-      <Sidebar />
+      <Sidebar activePage={activePage} setActivePage={setActivePage}/>
       <main className="main">
        <DashboardHeader />
         <TaskOverview tasks={tasks} />

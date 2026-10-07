@@ -1,6 +1,7 @@
-function Sidebar(){
-return(
-    <aside className="sidebar">
+function Sidebar({ activePage, setActivePage }) {
+       
+    return(
+        <aside className="sidebar">
 
         <div className="logo">
             <div className="logo-icon">
@@ -12,18 +13,18 @@ return(
         </div>
     </div>
     <nav className="nav">
-        <div className="nav-item active">
+        <button className={`nav-item ${activePage === "home"? "active" :""}`} onClick={() => setActivePage("home")}>
              🏠 Home
-        </div>
-        <div className="nav-item">
+        </button>
+        <button className={`nav-item ${activePage === "all" ? "active" : ""}`} onClick={() => setActivePage("all")}>
              ☷ All Tasks
-        </div>
-        <div className="nav-item">
+        </button>
+        <button className={`nav-item ${activePage === "completed" ? "active" : ""}`} onClick={() => setActivePage("completed")}>
             ✓ Completed
-        </div>
-        <div className="nav-item">
+        </button>
+        <button className={`nav-item ${activePage === "settings" ? "active" : ""}`} onClick ={() => setActivePage("settings")}>
             ⚙ Settings
-        </div>
+        </button>
     </nav>
  </aside>
 );
