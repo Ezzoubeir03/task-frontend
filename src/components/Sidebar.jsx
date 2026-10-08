@@ -1,3 +1,8 @@
+import {House, Settings, Check, List, LogOut} from "lucide-react";
+
+
+
+
 function Sidebar({ activePage, setActivePage }) {
        
     return(
@@ -14,17 +19,25 @@ function Sidebar({ activePage, setActivePage }) {
     </div>
     <nav className="nav">
         <button className={`nav-item ${activePage === "home"? "active" :""}`} onClick={() => setActivePage("home")}>
-             🏠 Home
+            <House size={20} />
+            <span>🏠 Home</span> 
         </button>
         <button className={`nav-item ${activePage === "all" ? "active" : ""}`} onClick={() => setActivePage("all")}>
-             ☷ All Tasks
+            <List size={20} />
+            <span>☷ All Tasks</span> 
         </button>
         <button className={`nav-item ${activePage === "completed" ? "active" : ""}`} onClick={() => setActivePage("completed")}>
-            ✓ Completed
+            <Check size={20}/>
+            <span>✓ Completed</span>
         </button>
-        <button className={`nav-item ${activePage === "settings" ? "active" : ""}`} onClick ={() => setActivePage("settings")}>
-            ⚙ Settings
-        </button>
+        <button className={`nav-item ${activePage === "settings" ? "active" : ""}`} onClick ={() => setActivePage("settings")}>  
+            <Settings size={20} />
+            <span>Settings</span>
+       </button>
+       <button className={"nav-item"}>
+            <LogOut size={20} />
+            <span>Logout</span>
+       </button>
     </nav>
  </aside>
 );

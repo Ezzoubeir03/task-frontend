@@ -1,3 +1,14 @@
+.pp{
+  display: flex;
+  min-height: 100vh;
+  background: #0b1020;
+}
+.main{
+  flex: flex;
+  min-width:100vh;
+  background: #0b1020;
+
+}
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +119,544 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+.home-page {
+  width: 100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding: 40px;
+  box-sizing:border-box;
+}
+.welcome-card {
+position: relative;
+min-height:250px;
+padding: 38px 42px;
+border-radius: 24px;
+overflow: hidden;
+
+background:
+linear-gradient(
+  135deg,
+            #17152f 0%,
+            #211a46 50%,
+            #17152f 100%
+);
+border: 1px solid rgba(139, 92, 246, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-label,
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    color: #9b8afb;
+}
+
+.welcome-card h1 {
+    margin: 14px 0 10px;
+
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    color: #ffffff;
+}
+
+.welcome-card p {
+    margin: 0 0 25px;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    color: #aaa8c4;
+}
+
+.primary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 18px;
+
+    background: #7c5cff;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.primary-action:hover {
+    background: #8b6cff;
+    transform: translateY(-2px);
+}
+
+.welcome-decoration {
+    width: 170px;
+    height: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #8065ff;
+
+    background: rgba(124, 92, 255, 0.08);
+
+    box-shadow:
+        0 0 80px rgba(124, 92, 255, 0.15);
+
+    margin-right: 30px;
+}
+
+
+/* ========================================
+   STATISTICS
+======================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 24px;
+}
+
+.stat-card {
+    padding: 24px;
+
+    background: #111629;
+
+    border: 1px solid #20263d;
+
+    border-radius: 18px;
+
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #343b5e;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+}
+
+.stat-icon.purple {
+    color: #9b7cff;
+    background: rgba(124, 92, 255, 0.13);
+}
+
+.stat-icon.green {
+    color: #46d69c;
+    background: rgba(70, 214, 156, 0.12);
+}
+
+.stat-icon.orange {
+    color: #f3ad5f;
+    background: rgba(243, 173, 95, 0.12);
+}
+
+.stat-label {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #727891;
+}
+
+.stat-card h2 {
+    margin: 22px 0 5px;
+
+    font-size: 32px;
+
+    color: #ffffff;
+}
+
+.stat-card p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777e98;
+}
+
+
+/* ========================================
+   PROGRESS
+======================================== */
+
+.progress-card {
+    margin-top: 24px;
+
+    padding: 27px;
+
+    border-radius: 18px;
+
+    background: #111629;
+
+    border: 1px solid #20263d;
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress-header h2 {
+    margin: 9px 0 4px;
+
+    font-size: 20px;
+
+    color: #ffffff;
+}
+
+.progress-header p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777e98;
+}
+
+.progress-percentage {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #8b6cff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+
+    margin-top: 24px;
+
+    border-radius: 20px;
+
+    background: #242a40;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #6d4df5,
+        #9b7cff
+    );
+
+    transition: width 0.4s ease;
+}
+
+
+/* ========================================
+   RECENT TASKS
+======================================== */
+
+.recent-section {
+    margin-top: 32px;
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    margin: 8px 0 5px;
+
+    font-size: 22px;
+
+    color: #ffffff;
+}
+
+.section-header p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777e98;
+}
+
+.view-all-button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid #292f48;
+    border-radius: 9px;
+
+    background: #111629;
+    color: #a99cff;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.view-all-button:hover {
+    border-color: #6650c9;
+    background: #181d33;
+}
+
+
+/* ========================================
+   TASK LIST
+======================================== */
+
+.recent-tasks {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.recent-task {
+    display: flex;
+    align-items: center;
+
+    padding: 17px 20px;
+
+    background: #111629;
+
+    border: 1px solid #20263d;
+
+    border-radius: 14px;
+
+    transition: 0.2s ease;
+}
+
+.recent-task:hover {
+    transform: translateX(3px);
+
+    border-color: #353d5d;
+}
+
+.recent-task-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 14px;
+
+    border-radius: 10px;
+
+    color: #9b7cff;
+    background: rgba(124, 92, 255, 0.1);
+}
+
+.recent-task.completed .recent-task-icon {
+    color: #46d69c;
+    background: rgba(70, 214, 156, 0.1);
+}
+
+.recent-task-content {
+    flex: 1;
+}
+
+.recent-task-content h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #eeeeF5;
+}
+
+.recent-task-content span {
+    font-size: 12px;
+
+    color: #777e98;
+}
+
+.task-arrow {
+    color: #565d77;
+
+    transition: 0.2s ease;
+}
+
+.recent-task:hover .task-arrow {
+    color: #9b7cff;
+    transform: translateX(3px);
+}
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty-state {
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: #111629;
+
+    border: 1px dashed #2b324b;
+
+    border-radius: 18px;
+}
+
+.empty-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    color: #8b6cff;
+
+    background: rgba(124, 92, 255, 0.1);
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+
+    font-size: 19px;
+
+    color: #ffffff;
+}
+
+.empty-state p {
+    max-width: 430px;
+
+    margin: 0 auto 20px;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #777e98;
+}
+
+.empty-state button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #7c5cff;
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.empty-state button:hover {
+    background: #8b6cff;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .home-page {
+        padding: 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-decoration {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .home-page {
+        padding: 18px;
+    }
+
+    .welcome-card {
+        padding: 28px;
+    }
+
+    .welcome-card h1 {
+        font-size: 28px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
 }

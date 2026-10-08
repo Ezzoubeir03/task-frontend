@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import "./App.css";
 import  DashboardHeader from "./components/DashboardHeader";
 import TaskOverview from "./components/TaskOverview";
+import HomePage from "./components/HomePage";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [activePage, setActivePage] = useState("home");
 
-  const currentTasks = tasks.filter(task => !task.completed);
+  const currentTasks  = tasks.filter(task => !task.completed);
   const completedTasks = tasks.filter(task => task.completed);
 
   async function getTasks(){
@@ -108,19 +109,60 @@ useEffect(() => {
   return (
     <div className ="app">
       <Sidebar activePage={activePage} setActivePage={setActivePage}/>
-      <main className="main">
-       <DashboardHeader />
-        <TaskOverview tasks={tasks} />
-        <TaskForm task={task} setTask={setTask} addTask={addTask} />
+     <main className="main">
+      {activePage === "home" && (
+        <HomePage tasks={tasks} setActivePage={setActivePage} setTask={setTask}/>
+    )}
+        {activePage === "all" && (
+          <>
+          <DashboardHeader />
+          <TaskOverview tasks={task} /> 
+          <TaskForm  
+          task={task}
+          setTask={setTask}
+          addTask={addTask}
+          />
+          <h2> All Tasks</h2>
+          <ul> 
+            {tasks.map((task) => (
+              <TaskItem
+              key ={task.id}
+              task= {task}
+              updateTask={updateTask}
+              deleteTask={deleteTask}
 
-      {/* <button onClick={addTask}>Add Task </button> */}
-      <h2>My Tasks</h2>
-      <ul>
-        {currentTasks.map((task) => (
-          <TaskItem key={task.id} task={task} updateTask={updateTask} deleteTask={deleteTask} />
-        ))}
-         </ul>
-      </main>
+              />
+            ))}
+          </ul>
+         </>
+        )}
+
+        {activePage === "completed" &&(
+          <>
+          <h1>Completed Tasks</h1>
+          <p> Here are the tasks you have completed.</p>
+
+          <ul>
+            {completedTasks.map((task)=> (
+              <TaskItem 
+              key ={task.id}
+              task = {task}
+              updateTask ={updateTask}
+              deleteTask ={deleteTask}
+              />
+            ))}
+          </ul>
+          </>
+        )}
+        {activePage === "settings" && (
+          <>
+          <h1>Setetings</h1>
+          <p>Manage your Task Manager settings here.</p>
+          </>
+        )}
+    
+     </main>
+     
     </div>
     );
 }  
