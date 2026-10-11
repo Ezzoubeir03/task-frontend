@@ -110,13 +110,38 @@ useEffect(() => {
     <div className ="app">
       <Sidebar activePage={activePage} setActivePage={setActivePage}/>
      <main className="main">
+      <p>Current page: {activePage}</p>
       {activePage === "home" && (
         <HomePage tasks={tasks} setActivePage={setActivePage} setTask={setTask}/>
     )}
         {activePage === "all" && (
-          <>
-          <DashboardHeader />
-          <TaskOverview tasks={task} /> 
+          <div className="all-tasks-page">
+            <div> 
+              <h2>All Tasks</h2>
+              <p>Manage and track everything you need to do.</p>
+            </div>
+            <ul className="all-task-list">
+              {currentTasks.map((task) => (
+                <TaskItem 
+                key={task.id}
+                task={task}
+                updateTask={updateTask}
+                deleteTask={deleteTask}
+                />
+              ))}
+            </ul>
+          <DashboardHeader 
+           onAddTask={() => {
+            setTask("");
+            document.getElementById("task-input")?.focus();  
+           }}
+          />
+          <TaskForm 
+          task= {task}
+          setTask={setTask}
+          addTask={addTask}
+          />
+          <TaskOverview tasks={tasks} /> 
           <TaskForm  
           task={task}
           setTask={setTask}
@@ -134,7 +159,7 @@ useEffect(() => {
               />
             ))}
           </ul>
-         </>
+         </div>
         )}
 
         {activePage === "completed" &&(
@@ -156,7 +181,7 @@ useEffect(() => {
         )}
         {activePage === "settings" && (
           <>
-          <h1>Setetings</h1>
+          <h1>Settings</h1>
           <p>Manage your Task Manager settings here.</p>
           </>
         )}
